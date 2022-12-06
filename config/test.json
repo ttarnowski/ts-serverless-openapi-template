@@ -1,0 +1,6 @@
+{
+  "server": {
+    "port": 4001
+  },
+  "authSecret": "secret"
+}
