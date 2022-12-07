@@ -35,8 +35,6 @@ export class ArticleController extends Controller {
   public async postArticle(@Body() reqBody: ArticleRequestBody): Promise<ArticleResponseBody> {
     const article = await this.articlesService.createArticle(reqBody.article);
 
-    this.setStatus(201);
-
     return { article };
   }
 }

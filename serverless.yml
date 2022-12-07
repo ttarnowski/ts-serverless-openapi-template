@@ -24,6 +24,7 @@ provider:
   name: aws
   runtime: nodejs16.x
   lambdaHashingVersion: 20201221
+  memorySize: 256
 
 # you can overwrite defaults here
 #  stage: dev
@@ -61,8 +62,9 @@ provider:
 #    NEW_DYNAMODB_TABLE_NAME: ${self:provider.stage}NewDynamoDBTable
 
 # you can add packaging information here
-#package:
-#  patterns:
+package:
+  patterns:
+    - config/**
 #    - '!exclude-me.js'
 #    - '!exclude-me-dir/**'
 #    - include-me.js
