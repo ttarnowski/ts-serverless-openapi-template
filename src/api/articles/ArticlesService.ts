@@ -2,11 +2,11 @@ import { inject } from "inversify";
 import { provideSingleton } from "../../util/provideSingleton";
 import { ApiError } from "../ApiError";
 import { Article, NewArticle } from "./Article";
-import { ArticleRepository } from "./ArticlesRepository";
+import { ArticlesRepository } from "./ArticlesRepository";
 
 @provideSingleton(ArticlesService)
 export class ArticlesService {
-  constructor(@inject("ArticlesRepository") private articlesRepository: ArticleRepository) {}
+  constructor(@inject("ArticlesRepository") private articlesRepository: ArticlesRepository) {}
 
   public async getArticle(id: string) {
     const article = await this.articlesRepository.fetchOneById(id);

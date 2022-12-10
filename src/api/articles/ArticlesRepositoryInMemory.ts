@@ -1,8 +1,8 @@
 import { v4 } from "uuid";
 import { NewArticle, Article } from "./Article";
-import { ArticleRepository } from "./ArticlesRepository";
+import { ArticlesRepository } from "./ArticlesRepository";
 
-export class ArticlesRepositoryInMemory implements ArticleRepository {
+export class ArticlesRepositoryInMemory implements ArticlesRepository {
   private articleMap: Record<string, Article> = {};
 
   create(newArticle: NewArticle): Promise<Article> {

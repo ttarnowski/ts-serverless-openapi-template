@@ -3,7 +3,7 @@ import { request } from "../helpers/app";
 import { getAuthToken } from "../helpers/auth";
 import { Article } from "../../src/api/articles/Article";
 import { iocContainer } from "../../src/ioc";
-import { ArticleRepository } from "../../src/api/articles/ArticlesRepository";
+import { ArticlesRepository } from "../../src/api/articles/ArticlesRepository";
 
 const createArticle = (article: Partial<Article> = {}): Article => ({
   id: v4(),
@@ -41,7 +41,7 @@ describe("Articles", () => {
 
   describe("GET /article/{id}", () => {
     it("responds with 200 status code and article data if article exists in database", async () => {
-      const article = await iocContainer.get<ArticleRepository>("ArticlesRepository").create(createArticle());
+      const article = await iocContainer.get<ArticlesRepository>("ArticlesRepository").create(createArticle());
       const expectedArticle = {
         ...article,
         createdAt: article.createdAt.toISOString(),
