@@ -1,10 +1,10 @@
 import { inject } from "inversify";
-import { provideSingleton } from "../../util/provideSingleton";
+import { provide } from "inversify-binding-decorators";
 import { ApiError } from "../ApiError";
 import { Article, NewArticle } from "./Article";
 import { ArticlesRepository } from "./ArticlesRepository";
 
-@provideSingleton(ArticlesService)
+@provide(ArticlesService)
 export class ArticlesService {
   constructor(@inject("ArticlesRepository") private articlesRepository: ArticlesRepository) {}
 

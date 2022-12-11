@@ -3,9 +3,9 @@ import { AuthRequest } from "./AuthRequest";
 import { AuthToken } from "./AuthToken";
 import { sign } from "jsonwebtoken";
 import { v4 } from "uuid";
-import { provideSingleton } from "../../util/provideSingleton";
+import { provide } from "inversify-binding-decorators";
 
-@provideSingleton(AuthService)
+@provide(AuthService)
 export class AuthService {
   public authenticate(authReq: AuthRequest): AuthToken {
     const uuid = v4();
